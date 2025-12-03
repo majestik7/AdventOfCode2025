@@ -8,7 +8,7 @@ inputfile=current_script_dir + '\input.txt'
 
 answer = 0
 
-def split_str_into_chuncks(text, chunk_size):
+def split_str_into_chunks(text, chunk_size):
     chunks = []
     for i in range(0, len(text), chunk_size):
         chunk = text[i:i + chunk_size]
@@ -28,14 +28,11 @@ with open(inputfile, 'r') as file:
             ids = list(range(rng[0],rng[1]+1))
             #print(ids)
             for n in ids:
-                #if len(str(n)) % 2 == 0:
-                #print('n',n)
-
                 t = len(str(n))//2
                 #print('t',t)
                 for u in range(1,t+1):
                     #print(u)
-                    chunk_res = split_str_into_chuncks(str(n), u)
+                    chunk_res = split_str_into_chunks(str(n), u)
                     #print('chunk-',chunk_res)
                     if len(set(chunk_res)) == 1:
                         #print('\033[91mINVALID ID\033[0m',n)
