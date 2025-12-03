@@ -11,16 +11,6 @@ answer = 0
 numlen = 12
 delim = ''
 
-def get_largest_index(list, string):
-    #print(list, string)
-    for s in range(len(list) - 1, -1, -1):
-        if list[s] == string:
-            return s
-    return -1
-
-def get_largest_num(list):
-    return heapq.nlargest(1, list)
-    
 
 with open(inputfile, 'r') as file:
     for line in file:
