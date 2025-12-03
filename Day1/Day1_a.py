@@ -7,7 +7,6 @@ my_array = np.arange(0, n + 1)
 my_array = np.roll(my_array, 50)
 
 current_script_dir = os.path.dirname(os.path.realpath(__file__))
-#print(f"Directory of current script: {current_script_dir}")
 
 inputfile=current_script_dir + '\input.txt'
 
