@@ -1,13 +1,15 @@
 
 import os
+import copy
 
 current_script_dir = os.path.dirname(os.path.realpath(__file__))
 
-inputfile=current_script_dir + '\input.txt'
+inputfile=current_script_dir + '\intest.txt'
 
 answer = 0
 fresh = []
 ingredients = []
+all_fresh = []
 
 with open(inputfile, 'r') as file:
     for line in file:
@@ -15,12 +17,12 @@ with open(inputfile, 'r') as file:
         if l.count('-') > 0:
             l = l.split('-')
             fresh.append(l)
-        elif l == [] or l == '':
-            continue
-        else:
-            ingredients.append(int(l))
+        #elif l == [] or l == '':
+            #continue
+        #else:
+            #ingredients.append(int(l))
 
-#print(fresh)
+print(fresh)
 #print(ingredients)
 
 for i in ingredients:
