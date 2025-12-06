@@ -14,10 +14,7 @@ ops = {
     "+": operator.add,
     "-": operator.sub,
     "*": operator.mul,
-    "/": operator.truediv,  # Use truediv for float division
-    "//": operator.floordiv,
-    "%": operator.mod,
-    "**": operator.pow
+    "/": operator.truediv
 }
 
 with open(inputfile, 'r') as file:
