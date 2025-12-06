@@ -1,16 +1,13 @@
 import os
 import operator
 
-
 current_script_dir = os.path.dirname(os.path.realpath(__file__))
 inputfile=current_script_dir + '\input.txt'
 
 answer = 0
-array = []
 input = []
-input2 = []
 temp1 = []
-temp2 = []
+array = []
 delim = ''
 
 ops = {
@@ -22,8 +19,6 @@ ops = {
     "%": operator.mod,
     "**": operator.pow
 }
-
-
 
 with open(inputfile, 'r') as file:
     for line in file:
@@ -40,22 +35,22 @@ for d in reversed(range(len(input[0]))):
     nums.append(digit.strip())
     temp1.extend(nums)
     if (nums[0] == ''):
-        temp2.append(temp1[:-1])
+        array.append(temp1[:-1])
         temp1 = []
     le = []
     le.append(int(n))
     le.append(len(input)-2)
     if d == 0 and n == (len(input)-2):
-        temp2.append(temp1[:])
+        array.append(temp1[:])
         temp1 = []
 o = delim.join(input[-1])
 o = o.split()
 o = o[::-1]
 
 for p in range(len(o)):
-    temp2[p].append(o[p])
+    array[p].append(o[p])
 
-for a in temp2:
+for a in array:
     x = len(a) - 2
     result = 0
 
