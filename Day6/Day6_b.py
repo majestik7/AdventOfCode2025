@@ -8,6 +8,9 @@ inputfile=current_script_dir + '\input.txt'
 answer = 0
 array = []
 input = []
+input2 = []
+temp1 = []
+temp2 = []
 delim = ''
 
 ops = {
@@ -24,21 +27,35 @@ ops = {
 
 with open(inputfile, 'r') as file:
     for line in file:
-        line = line.strip().split()
+        line = list(line[:-1])
+        #print(line)
         input.append(line)
 
+nums = []
+for d in reversed(range(len(input[0]))):
+    digit = ''
+    nums = []
+    for n in range(len(input)-1):
+        digit = digit + input[n][d] 
+    nums.append(digit.strip())
+    temp1.extend(nums)
+    if (nums[0] == ''):
+        temp2.append(temp1[:-1])
+        temp1 = []
+    le = []
+    le.append(int(n))
+    le.append(len(input)-2)
+    if d == 0 and n == (len(input)-2):
+        temp2.append(temp1[:])
+        temp1 = []
+o = delim.join(input[-1])
+o = o.split()
+o = o[::-1]
 
-for i in range(len(input[0])):
-    problem = []
-    for e in range(len(input)):
-        l = []
-        l.append(input[e][i])
-        problem.append(l[0])    
-    array.append(problem)
+for p in range(len(o)):
+    temp2[p].append(o[p])
 
-print(array)
-
-for a in array:
+for a in temp2:
     x = len(a) - 2
     result = 0
 
@@ -47,12 +64,9 @@ for a in array:
         result = 1
     elif op_char == '+':
         result = 0
-    print(op_char)
     for n in a[:-1]:
-        print(str(n))
         op_func = ops[op_char]
         result = op_func(int(result), int(n))
-    print(result)
     answer = answer + result
 
 
