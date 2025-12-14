@@ -97,9 +97,32 @@ for a in red2:
 
 
 
-for t in t_map:
-    print(t)
+#for t in t_map:
+#    print(t)
 
+for e in range(len(t_map)):
+    change = True
+    for f in range(len(t_map[e])):
+        #print(e,f,change)
+        if t_map[e][f] == '#' or t_map[e][f] == 'X':
+            change = False
+        if change and t_map[e][f] == '.':
+            t_map[e][f] = ' '
+
+for e in range(len(t_map)):
+    change = True
+    for f in reversed(range(len(t_map[e]))):
+        #print(e,f,change)
+        if t_map[e][f] == '#' or t_map[e][f] == 'X':
+            change = False
+        if change and t_map[e][f] == '.':
+            t_map[e][f] = ' '
+
+
+
+#print('\n')
+#for t in t_map:
+#    print(t)
 
 fn = current_script_dir + f"\\map.txt"
 fileout = open(fn, "w")
@@ -125,17 +148,17 @@ for a in red2:
         if a != b:
             pair = sorted((a,b))
             if pair not in pairs:
-                #print('working',pair)
+                print('working',pair)
                 pairs.append((a,b))
-                areas = get_area(a,b)
-                array.append([a,b,areas])
-    #print('remove',a)
+                area = get_area(a,b)
+                array.append([a,b,area])
+                print(array)
+    print('remove',a)
     red.remove(a)
     pairs = [item for item in pairs if a not in item]
 
 areas = sorted(array, key=lambda item: item[-1])
-#print(areas[-1])
+print(areas[-1])
+answer = areas[-1][-1]
 
-#print(abs(dists[-1][0][0]-dists[-1][1][0]))
-#print(abs(dists[-1][0][1]-dists[-1][1][1]))
-#print('\n\033[92mAnswer:',area,'\033[0m')
+print('\n\033[92mAnswer:',answer,'\033[0m')

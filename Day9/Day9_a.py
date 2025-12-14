@@ -47,8 +47,8 @@ for a in red2:
             pair = sorted((a,b))
             if pair not in pairs:
                 pairs.append((a,b))
-                areas = get_area(a,b)
-                array.append([a,b,areas])
+                area = get_area(a,b)
+                array.append([a,b,area])
     red.remove(a)
     pairs = [item for item in pairs if a not in item]
 
